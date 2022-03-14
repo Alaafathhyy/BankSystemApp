@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html> 
+  <body>
+    <script>
+      function getQueryStringValue(key) {
+        return unescape(
+          window.location.search.replace(
+            new RegExp(
+              "^(?:.*[&\\?]" +
+                escape(key).replace(/[\.\+\*]/g, "\\$&") +
+                "(?:\\=([^&]*))?)?.*$",
+              "i"
+            ),
+            "$1"
+          )
+        );
+      }
+    </script>
+       <h1> Tranfser money to : <span id="data"></span></h1>
+    <script>
+      document.getElementById("data").innerHTML = getQueryStringValue("data");
+    </script>
+  </body>
+</html>
